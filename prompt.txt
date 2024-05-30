@@ -1,0 +1,22 @@
+/set parameter num_ctx 32768
+
+"""
+For each occurrence of the pattern ## From [from version number] to [to version number], extract the entire text until the next ## marker. Remember extracted text as [extracted text]. Rewrite [extracted text] from past simple or present perfect tense to future simple eg: "We removed" to be "We will remove" and keep the whole text and text meaning. Just make it in future tense if there is need. In [extracted text] find mentioning of Angular version. If there is no
+Angular version take the one from previous row. If there is no previous row
+take version 11 and remember it as [angular version].
+In [extracted text] find mentioning of NodeJS version. If there is no
+NodeJS version take the one from previous row. If there is no previous row
+take version 14.15.0 LTS and remember it as [nodejs version].
+In [extracted text] find mentioning of NPM version. If there is no
+NPM version take the one from previous row. If there is no previous row
+take version 6.14.8 and remember it as [npm version].
+Finally output the following table. Please sort
+the entire output table based on the values in the "From PWA version" column.
+| From PWA version                      | To PWA version                     | Angular version                                                                  | NodeJS version                                                              | NPM version                                                              | Things we need to do                                  | Estimate                    |
+|---------------------------------------|------------------------------------|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------|--------------------------------------------------------------------------|-------------------------------------------------------|-----------------------------|
+| [from version number]                 | [to version  number]               | [angular version]                                                                | [nodejs version]                                                            | [npm version]                                                            | [extracted text]  - the whole text don't summarize it | 1 - this is hardcoded value |
+  --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Here is the input data:
+[Input data goes here]
+"""
