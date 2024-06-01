@@ -1,8 +1,9 @@
 /set parameter num_ctx 32768
 
 """
-For each occurrence of the pattern ## From [from version number] to [to version number], extract the entire text until the next ## marker.
-Remember extracted text as [extracted text].
+For each occurrence of the pattern ## From [from version number] to [to version number], extract the content until the next ## marker.
+Convert all occurrences of past simple or present perfect tense in extracted content to future simple tense, for example:
+"We removed" becomes "We will remove" and remember the whole resulted content as [resulted content].
 Rewrite [extracted text] from past simple or present perfect tense to future simple tense, for example:
 "We removed" becomes "We will remove" and keep the whole text and text meaning. Just make it in future tense if there is need.
 In [extracted text] find mentioning of Angular version. If there is no

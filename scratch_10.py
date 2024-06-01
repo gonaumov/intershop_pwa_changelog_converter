@@ -1,12 +1,9 @@
-import ollama
 import re
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
 prompt = re.sub(r"\s+", " ", f"""
-For each occurrence of the pattern ## From [from version number] to [to version number], get the content 
-including all new lines and special characters until the next ## and keep it as [resulted content].
-Replace all occurrences of past simple or present perfect tense in [collected content], with future simple tense, 
+For each occurrence of the pattern ## From [from version number] to [to version number], extract the content - 
+including all new lines and special characters until the next ## marker and keep it as [entire content].
+Replace all occurrences of past simple or present perfect tense in [entire content], with future simple tense, 
 and keep the whole result as [resulted content].
 In [resulted content] find mentioning of Angular version. If there is no
 Angular version take the one from previous row. If there is no previous row
@@ -30,23 +27,4 @@ Response only with the result table, please.
 Here is the input data:
 """.strip())
 
-with open('migrations.md') as f:
-    migrations_description = f.read()
-    prompt = prompt + migrations_description
-
-
-def main(prompt_text):
-    print("Please wait ...")
-    # print(prompt_text)
-    response = ollama.chat(model='intershop-pwa-changelog-converter',
-                           messages=[{'role': 'user', 'content': prompt_text}])
-    with open('response.md', 'w') as file:
-        file.write(response['message']['content'])
-    print("All done!")
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    main(prompt)
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print(prompt)
